@@ -53,23 +53,25 @@ menuconfig QUALCOMM_DIR_CAMERA
 	  directory to compile into the kernel.
 
 config CAMERA_WT_FACTORY_SUPPORTED
-	bool "Lenovo Wingtech factory supported about camera"
-	depends on MSMB_CAMERA
-	---help---
-	  Enable to support the wingtech factory about camera
+        bool "Lenovo Wingtech factory supported about camera"
+        depends on MSMB_CAMERA
+        ---help---
+          Enable to support the wingtech factory about camera
 
 config MSMB_CAMERA_DEBUG
-	bool "Qualcomm MSM camera 2.0 debugging with printk"
-	depends on MSMB_CAMERA
-	---help---
-	  Enable printk() debug for msm camera 2.0
+        bool "Qualcomm MSM camera 2.0 debugging with printk"
+        depends on MSMB_CAMERA
+        ---help---
+          Enable printk() debug for msm camera 2.0
 
 if LENOVO_DIR_CAMERA
-source "../vendor/lenovo/camera/camera-driver/Kconfig"
+source "drivers/media/platform/msm/camera-lenovo/camera-driver/Kconfig"
 endif # LENOVO_DIR_CAMERA
+
 if QUALCOMM_DIR_CAMERA
 source "drivers/media/platform/msm/camera_v2/Kconfig"
 endif # QUALCOMM_DIR_CAMERA
+
 source "drivers/media/platform/msm/dvb/Kconfig"
 source "drivers/media/platform/msm/broadcast/Kconfig"
 source "drivers/media/platform/msm/sde/Kconfig"
